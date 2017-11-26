@@ -1,0 +1,7 @@
+zuul:
+  routes:
+    bookservice:
+       path: /bookservice/**
+       serviceId: bookservice
+server:
+  port: 8765
