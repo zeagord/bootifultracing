@@ -5,3 +5,7 @@ zuul:
        serviceId: bookservice
 server:
   port: 8765
+spring:
+  sleuth:
+    sampler:
+      percentage: 1
