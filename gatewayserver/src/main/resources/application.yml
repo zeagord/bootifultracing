@@ -3,9 +3,33 @@ zuul:
     bookservice:
        path: /bookservice/**
        serviceId: bookservice
+       url: http://bookservice.spring-cloud.svc/
+
 server:
   port: 8765
+
 spring:
   sleuth:
+    zuul:
+      enabled: true
     sampler:
       percentage: 1
+  zipkin:
+    baseUrl: http://zipkinserver.spring-cloud.svc/
+  metrics:
+    prometheus:
+      enabled: true
+
+logging:
+  level:
+    org.springframework.cloud.sleuth.log: DEBUG
+
+endpoints:
+  shutdown:
+    enabled: true
+    sensitive: false
+  health:
+    sensitive: false
+management:
+  security:
+    enabled: false

@@ -1,6 +1,28 @@
-server:
-  port: 9000
 spring:
   sleuth:
     sampler:
       percentage: 1
+  zipkin:
+    baseUrl: http://ec2-13-229-49-198.ap-southeast-1.compute.amazonaws.com:9411/
+  metrics:
+    prometheus:
+      enabled: true
+  data:
+    mongodb:
+      host: localhost #mongoserver
+      port: 27017
+
+logging:
+  level:
+    org.springframework.cloud.sleuth.log: DEBUG
+
+endpoints:
+  shutdown:
+    enabled: true
+    sensitive: false
+  health:
+    sensitive: false
+management:
+  security:
+    enabled: false
+
